@@ -12,6 +12,31 @@ console.log(arrayOfUppers);
 
 var arrayOfSpecialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 console.log(arrayOfSpecialChar);
+// ============================================================
+//ask  bcs code lines below
+
+// function generatePassword() {
+//   var charLength = prompt("How many characters would you like?"); 
+
+// if (Number.isInteger(Number.parseInt(charLength)) !== true) { //charlength NaN
+//   alert("Please enter a number"); //charlength = what was filled into prompt
+//   return writePassword()
+// } 
+
+// if (parseInt(charLength) < 8) {
+//   alert('Password length must be at least 8 characters');
+//   return writePassword()
+// }
+
+// // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
+// if (parseInt(charLength)  > 128) {
+//   alert('Password length must less than 129 characters');
+//   return writePassword()
+// }
+
+// return charLength
+// }
+
 
 function generatePassword() {
     var charLength = prompt("How many characters would you like?"); 
@@ -26,18 +51,18 @@ function generatePassword() {
     charLength = Number.parseInt(charLength); //charLength is the above converted to number
     console.log(charLength); //this should be a number
     charLength = prompt("How many characters would you like - between 8 and 128 characters");
-  } else if (Number.parseInt(charLength) >= 8 || Number.parseInt(charLength) <= 128) { //charlength = what was filled into prompt
+  } else if (Number.parseInt(charLength) >= 8 && Number.parseInt(charLength) <= 128) { //charlength = what was filled into prompt
     charLength = Number.parseInt(charLength);
     console.log(charLength);
     console.log("great job");
-    return charLength;
+    // return charLength;
   }
   // series of prompts
   // prompt 1: how long do i want password to be?
-    // min 8 max 128 characters (may need to define which characters to use)
+  //   min 8 max 128 characters (may need to define which characters to use)
     
   // conditional - LC, UC, num or SC
-  // 
+  
   // return 
 }
 

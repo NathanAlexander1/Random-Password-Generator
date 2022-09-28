@@ -15,75 +15,6 @@ var arrayOfSpecialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 console.log(arrayOfSpecialChar);
 
 var availableCharacters = [];
-// ============================================================
-
-//Code below DOES NOT work
-//=======================================
-// function generatePassword() {
-//   var charLength = prompt("How many characters would you like?"); 
-//   console.log(charLength); //charlength = what was filled into prompt
-// if (Number.isInteger(Number.parseInt(charLength)) !== true) { //charlength NaN
-//   console.log(charLength);
-//   charLength = prompt("Please enter a number"); //charlength = what was filled into prompt
-//   charLength = Number.parseInt(charLength); //charLength is the above converted to number
-//   console.log(charLength);
-//   console.log(typeof charLength); //this should be a number
-// } else if (Number.parseInt(charLength) < 8 || Number.parseInt(charLength) > 128) { //charlength falls out of range
-//   charLength = Number.parseInt(charLength); //charLength is the above converted to number
-//   console.log(charLength); //this should be a number
-//   charLength = prompt("How many characters would you like - between 8 and 128 characters");
-// } else if (Number.parseInt(charLength) >= 8 && Number.parseInt(charLength) <= 128) { //charlength = what was filled into prompt
-//   charLength = Number.parseInt(charLength);
-//   console.log(charLength);
-//   console.log("great job");
-//   return charLength;
-// }
-// // series of prompts
-// // prompt 1: how long do i want password to be?
-// //   min 8 max 128 characters (may need to define which characters to use)
-  
-// // conditional - LC, UC, num or SC
-
-// // return 
-// }
-
-//MY ORIGINAL COE
-//===========================================
-// function generatePassword() {
-//     var charLength = prompt("How many characters would you like?"); 
-//     console.log(charLength); //charlength = what was filled into prompt
-//   if (Number.isInteger(Number.parseInt(charLength)) !== true) { //charlength NaN
-//     console.log(charLength);
-//     charLength = prompt("Please enter a number"); //charlength = what was filled into prompt
-//     charLength = Number.parseInt(charLength); //charLength is the above converted to number
-//     console.log(charLength);
-//     console.log(typeof charLength); //this should be a number
-//   } 
-  
-//   if (Number.parseInt(charLength) < 8 || Number.parseInt(charLength) > 128) { //charlength falls out of range
-//     charLength = Number.parseInt(charLength); //charLength is the above converted to number
-//     console.log(charLength); //this should be a number
-//     charLength = prompt("How many characters would you like - between 8 and 128 characters");
-//   }
-  
-//   if (Number.parseInt(charLength) >= 8 && Number.parseInt(charLength) <= 128) { //charlength = what was filled into prompt
-//     charLength = Number.parseInt(charLength);
-//     console.log(charLength);
-//     console.log("great job");
-//     return charLength;
-//   }
-//   // series of prompts
-//   // prompt 1: how long do i want password to be?
-//   //   min 8 max 128 characters (may need to define which characters to use)
-    
-//   // conditional - LC, UC, num or SC
-  
-//   // return 
-// }
-
-
-// Ask BCS 2
-// =================
 
 //determine length of password
 //create empty array
@@ -120,7 +51,31 @@ function generatePassword() {
   if (includeNumbers) {
     availableCharacters = availableCharacters.concat(arrayOfNumbers);
   }
-  console.log(availableCharacters);
+  
+  if (includeSpecials) {
+    availableCharacters = availableCharacters.concat(arrayOfSpecialChar);
+  }
+  
+  if (includeUppers) {
+    availableCharacters = availableCharacters.concat(arrayOfUppers);
+  }
+  
+  if (includeLowers) {
+    availableCharacters = availableCharacters.concat(arrayOfLowers);
+  }
+  
+  // at this point, we should have an array of concatted arrays for confirms answered yes
+  //loop over available characters (for (i = 0, i < carLength, i++))
+    //need to use math.floor items[Math.floor(Math.random()*items.length)] - not necessarily right
+  for (var i = 0; i < charLength; i++ ) {
+
+    result = result.concat(availableCharacters[i]);
+  //as we loop, add character to currently empty string result
+  }
+  
+  //only thing is that we need to make sure it gets at lest one of every character type that is confirmed
+  //if they didnt say yes to any prompt, they have to be directed back to start?
+  console.log(result);
   return result;
 }
 

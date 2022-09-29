@@ -3,16 +3,12 @@
 var result = "";
 var charLength;
 var arrayOfNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 
-console.log(arrayOfNumbers);
 
 var arrayOfLowers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-console.log(arrayOfLowers);
 
 var arrayOfUppers = arrayOfLowers.map(function(x){ return x.toUpperCase();})
-console.log(arrayOfUppers);
 
 var arrayOfSpecialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
-console.log(arrayOfSpecialChar);
 
 var availableCharacters = [];
 
@@ -37,7 +33,7 @@ function generatePassword() {
     } else if (Number.parseInt(input) >= 8 && Number.parseInt(input) <= 128) { //charlength = what was filled into prompt
             
       charLength = Number.parseInt(input);
-      flag = false
+      flag = false;
     }
   }
   // console.log("my " + charLength);
@@ -63,22 +59,33 @@ function generatePassword() {
   if (includeLowers) {
     availableCharacters = availableCharacters.concat(arrayOfLowers);
   }
-  
+  // console.log(availableCharacters);
+
   // at this point, we should have an array of concatted arrays for confirms answered yes
   //loop over available characters (for (i = 0, i < carLength, i++))
     //need to use math.floor items[Math.floor(Math.random()*items.length)] - not necessarily right
   for (var i = 0; i < charLength; i++ ) {
 
-    result = result.concat(availableCharacters[i]);
+    result = result.concat(availableCharacters[Math.floor(Math.random()*availableCharacters.length)]); //this randomizes the array items selected
   //as we loop, add character to currently empty string result
+  // console.log(result);
   }
-  
-  //only thing is that we need to make sure it gets at lest one of every character type that is confirmed
+  //only thing is that we need to make sure it gets at least one of every character type that is confirmed
   //if they didnt say yes to any prompt, they have to be directed back to start?
-  console.log(result);
-  return result;
-}
+  
+  console.log(result); //just giving me the first 15 of the array
+  //need to randomize AND make sure I get at least one of each
 
+  //TODO: Edge case: All prompts are false
+  //TODO: Edge case: What if generated password does not contain characters from every true prompt
+    // if ((includeNumbers !== true) && (includeSpecials !== true) && (includeUppers !== true) && (includeLowers !== true)) {
+    //  return prompt("How many characters would you like?");
+    //   // generatePassword();
+    // }
+  
+  
+    return result;
+}
 
 var generateBtn = document.querySelector("#generate");
 
@@ -88,7 +95,12 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  
+  // var generateAgain = confirm("Would you like to generate another password?");
 
+  // if (generateAgain) {
+  //   generatePassword();
+  // }
 }
 
 // Add event listener to generate button

@@ -61,6 +61,12 @@ function generatePassword() {
   }
   // console.log(availableCharacters);
 
+   //Edge case: All prompts are false
+  if ((includeNumbers !== true) && (includeSpecials !== true) && (includeUppers !== true) && (includeLowers !== true)) {
+    result = "";
+    generatePassword();
+    return result;
+  }
   // at this point, we should have an array of concatted arrays for confirms answered yes
   //loop over available characters (for (i = 0, i < carLength, i++))
     //need to use math.floor items[Math.floor(Math.random()*items.length)] - not necessarily right
@@ -76,12 +82,9 @@ function generatePassword() {
   console.log(result); //just giving me the first 15 of the array
   //need to randomize AND make sure I get at least one of each
 
-  //TODO: Edge case: All prompts are false
+ 
   //TODO: Edge case: What if generated password does not contain characters from every true prompt
-    // if ((includeNumbers !== true) && (includeSpecials !== true) && (includeUppers !== true) && (includeLowers !== true)) {
-    //  return prompt("How many characters would you like?");
-    //   // generatePassword();
-    // }
+
   
   
     return result;

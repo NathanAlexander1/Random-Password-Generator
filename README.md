@@ -32,3 +32,4 @@ Screenshot:
 ![Screenshot-of-password-generator](./Assets/password-generator-screenshot.png)
 
 Deployed Link:
+https://nathanalexander1.github.io/Random-Password-Generator/
